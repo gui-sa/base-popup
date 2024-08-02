@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="body-container">
+        <header>
+            <h1 >Ambiente de teste:</h1>
+            <p>Tenha em mente que o JS daqui pode estar em EC6 e se voce for usar o GTM: lá é EC5</p>
+    
+        </header>
+        <main>
+            Vida dos animais: de manhã a girafa acorda e vai comer suas suculentas folhas...
+        </main>
+        <footer>
+            <p>HEEEY, aqui é o footer...</p>
+        </footer>
+        <!-- Teste aqui o template: 
+        
+        <div class='exit-popup' style='position: fixed; width: 100vw; height: 100vh; background-color: rgba(255,255,255,0.5); display: flex; flex-direction: column ; justify-content: center; align-items: center;'>
+            <div style='width: 60vw;height: 60vh; background-color: #fff; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; border-radius: 30px; padding: 32px;'>
+                <h2>Aqui dentro pode ter qualquer conteúdo!</h2>
+            </div>
+            <script>
+                ((window,document)=>{       
+                    var exit_popup_region = Array.prototype.slice.call(document.getElementsByClassName('exit-popup'));
+
+                        exit_popup_region.map(function(exit_region){
+                            exit_region.addEventListener('click',function(){
+                            exit_region.style.display = 'none';
+                        });
+                    })
+
+
+                })(window,document);
+            </script>
+        </div>  -->
+
+    </div>
+    <script>
+        
+        (function(window,document){       
+
+            var body_html = document.body;
+            body_html.innerHTML = "\
+                <div class='exit-popup' style='transition: 800ms ease ; position: fixed; width: 100vw; height: 100vh; background-color: rgba(255,255,255,0.5); display: flex; flex-direction: column ; justify-content: center; align-items: center; z-index: 100;'>\
+                    <div style='width: 60vw;height: 60vh; background-color: #fff; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; border-radius: 30px; padding: 32px;'>\
+                        <a href='#close' class='exit-popup'> X </a>\
+                        <h2>Aqui dentro pode ter qualquer conteúdo!</h2>\
+                    </div>\
+                </div> \
+            " + body_html.innerHTML;
+            var exit_popup_region = Array.prototype.slice.call(document.getElementsByClassName('exit-popup'));
+
+            exit_popup_region.map(function(exit_region){
+                    exit_region.addEventListener('click',function(){
+                    exit_region.style.display = 'none';
+                });
+            })
+        })(window,document);
+        
+    </script>
+</body>
+</html>
